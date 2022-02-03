@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get '/available-airport-codes', to: 'airport_codes#index'
+  get '/available-years', to: 'years#index'
+  get '/annual-statistics/:year', to: 'years#show'
+  get '/available-quantities', to: 'quantites#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  match '*unmatched_route', :to => 'application#raise_not_found!', :via => :all
 end
